@@ -1,0 +1,12 @@
+Header always append X-Frame-Options SAMEORIGIN
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_HOST} ^web.upoup.com [NC]
+    RewriteRule ^(.*)$ http://web.upoup.com/$1 [L,R=301]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^[a-zA-Z0-9-]+(.[a-z]{3,4})?$ index.php/$0 [QSA,PT,L]
+</IfModule>
+<FilesMatch ".(jpg|png|gif|ico|swf|js|css|pdf)$">
+    Header set Cache-Control "max-age=2592000"
+</FilesMatch>

@@ -1,0 +1,6 @@
+/.idea
+/backup
+/node_modules
+/runtime
+/upload
+package-lock.json
